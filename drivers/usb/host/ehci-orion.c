@@ -191,7 +191,7 @@ ehci_orion_conf_mbus_windows(struct usb_hcd *hcd,
 	}
 }
 
-static int __devinit ehci_orion_drv_probe(struct platform_device *pdev)
+static int __init ehci_orion_drv_probe(struct platform_device *pdev)
 {
 	struct orion_ehci_data *pd = pdev->dev.platform_data;
 	const struct mbus_dram_target_info *dram;
@@ -312,7 +312,7 @@ static int __exit ehci_orion_drv_remove(struct platform_device *pdev)
 
 MODULE_ALIAS("platform:orion-ehci");
 
-static struct platform_driver ehci_orion_driver = {
+static struct platform_driver __refdata ehci_orion_driver = {
 	.probe		= ehci_orion_drv_probe,
 	.remove		= __exit_p(ehci_orion_drv_remove),
 	.shutdown	= usb_hcd_platform_shutdown,

@@ -1230,7 +1230,7 @@ static int dovefb_resume(struct platform_device *pdev)
 }
 #endif
 
-static struct platform_driver dovefb_driver = {
+static struct platform_driver __refdata dovefb_driver = {
 	.probe		= dovefb_probe,
 #ifdef CONFIG_PM
 	.suspend	= dovefb_suspend,
